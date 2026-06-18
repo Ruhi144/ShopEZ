@@ -1,21 +1,58 @@
 import React from "react";
 
 function AIInsights() {
+
+  const insights = [
+    {
+      title: "Apple Stock Prediction",
+      description:
+        "AI predicts a bullish trend for Apple due to strong iPhone and AI-chip demand.",
+      status: "Bullish 📈"
+    },
+
+    {
+      title: "Tesla Market Analysis",
+      description:
+        "Tesla may experience short-term volatility due to increased EV competition.",
+      status: "Moderate ⚡"
+    },
+
+    {
+      title: "AI & Tech Sector",
+      description:
+        "Artificial Intelligence and semiconductor industries are expected to dominate this quarter.",
+      status: "Trending 🚀"
+    }
+  ];
+
   return (
-    <div className="page-container">
 
-      <h1>AI Market Insights 🤖</h1>
+    <div className="ai-page">
 
-      <div className="mood-card">
-        <h2>Market Prediction</h2>
+      <h1 className="ai-title">
+        AI Market Insights
+      </h1>
 
-        <p>
-          AI predicts strong bullish momentum in technology stocks this week.
-        </p>
+      <p className="ai-subtitle">
+        Smart predictions and market intelligence powered by AI analytics.
+      </p>
 
-        <h3 className="green">
-          Confidence: 82%
-        </h3>
+      <div className="ai-grid">
+
+        {insights.map((item, index) => (
+
+          <div className="ai-card" key={index}>
+
+            <h2>{item.title}</h2>
+
+            <p>{item.description}</p>
+
+            <span>{item.status}</span>
+
+          </div>
+
+        ))}
+
       </div>
 
     </div>

@@ -115,19 +115,43 @@ function Dashboard() {
         <h2 className="sidebar-logo">
           ShopEZ
         </h2>
+        <button
+          className="logout-btn"
+          onClick={() => {
+            localStorage.removeItem("token");
+            window.location.href = "/login";
+          }}
+        >
+          Logout 🚪
+        </button>
 
         <ul className="sidebar-menu">
 
-        <Link to="/">
-            <li>📊 Dashboard</li>
+        <Link to="/products">
+            <li>🛒 Products</li>
         </Link>
 
-        <Link to="/">
-            <li>📈 Market</li>
+        <Link to="/cart">
+          <li>🛒 Cart</li>
         </Link>
+        <Link to="/track-order">
+          <div className="menu-item">
+            <li>🚚 Track Order</li>
+          </div>
+        </Link>
+
+        <Link to="/orders">
+          <div className="menu-item">
+            <li>📦 Orders</li>
+          </div>
+        </Link>     
 
         <Link to="/portfolio">
             <li>💼 Portfolio</li>
+        </Link>
+
+        <Link to="/wishlist">
+          <li>❤️ Wishlist</li>
         </Link>
 
         <Link to="/watchlist">
@@ -138,7 +162,9 @@ function Dashboard() {
             <li>🤖 AI Insights</li>
         </Link>
 
-        <li>⚙ Settings</li>
+        <Link to="/settings">
+          <li>⚙️ Settings</li>
+        </Link>
 
         </ul>
 

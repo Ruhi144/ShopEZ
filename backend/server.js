@@ -1,14 +1,19 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const authRoutes = require("./routes/authRoutes");
+const productRoutes =
+require("./routes/productRoutes");
 
 require("dotenv").config({ path: "./.env" });
-console.log(process.env.MONGO_URI);
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
+console.log("Auth routes mounted");
 
 /* MONGODB CONNECTION */
 
@@ -20,9 +25,11 @@ mongoose
   })
 
   .catch((error) => {
-    console.log(error);
+    console.error("MongoDB Error:");
+    console.error(error);
+    console.error(error.message);
   });
-
+  
 /* TEST ROUTE */
 
 app.get("/", (req, res) => {
